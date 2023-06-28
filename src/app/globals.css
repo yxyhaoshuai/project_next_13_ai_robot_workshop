@@ -3,4 +3,24 @@
 @tailwind components;
 @tailwind utilities;
 
+.bx {
+    margin: 0 auto;
+    width: 1205px;
+}
 
+ul,p, dl, dd {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h5,h3 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+body{
+    background-color: rgb(242, 242, 242);
+}
