@@ -2,13 +2,14 @@ import { FC } from "react";
 
 
 
+
 interface ParagraphProps {}
 
 const Paragraph : FC<ParagraphProps> = ({}) => {
     return (
-        <>
-            首页
-        </>
+        <div className={"text-9xl"}>
+            这里是首页
+        </div>
 
     )
 }

@@ -6,13 +6,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-
     screens: {
       'sm': '930px',
       'md': '768px',
       'lg': '992px',
       'xl': '1200px',
-
     },
     extend: {
       dropShadow: {
