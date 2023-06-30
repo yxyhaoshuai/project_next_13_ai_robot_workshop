@@ -1,11 +1,13 @@
 "use client";
 import {useState} from "react";
-import NavBar from "@/components/NavBar";
-import FirstLayout from "@/components/FirstLayout";
+import NavBar from "@/components/layout/NavBar";
+import FirstLayout from "@/components/layout/FirstLayout";
 import AllRobot from "@/components/AllRobot";
-import SecondaryLayout from "@/components/SecondaryLayout";
+import SecondaryLayout from "@/components/layout/SecondaryLayout";
 import RobotList from "@/components/RobotList";
 import RobotCard from "@/components/RobotCard";
+import ChatRobotList from "@/components/ChatRobotList";
+import ChatInterface from "@/components/ChatInterface";
 
 export default function Page() {
     //navbar一共有四个索引分别为0，1，2，3
@@ -20,7 +22,7 @@ export default function Page() {
             <NavBar onClickNavBar={onClickNavBar} focusNavBar={focusNavBar}/>
             <FirstLayout>
                 {focusNavBar === 0 && <AllRobot setRouterIndex={setRouterIndex}/>}
-                {focusNavBar === 1 && <div className={"text-9xl"}>聊天</div>}
+                {focusNavBar === 1 && <ChatRobotList/>}
                 {focusNavBar === 2 && <div className={"text-9xl"}>用户</div>}
                 {focusNavBar === 3 && <div className={"text-9xl"}>收藏</div>}
             </FirstLayout>
@@ -39,7 +41,7 @@ export default function Page() {
                     <RobotCard/>
                     <RobotCard/>
                 </RobotList>}
-                {focusNavBar === 1 && <div className={"text-9xl"}>聊天</div>}
+                {focusNavBar === 1 && <ChatInterface/>}
                 {focusNavBar === 2 && <div className={"text-9xl"}>用户</div>}
                 {focusNavBar === 3 && <div className={"text-9xl"}>收藏</div>}
             </SecondaryLayout>
