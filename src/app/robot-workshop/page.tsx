@@ -16,7 +16,6 @@ export default function Page() {
     const onClickNavBar = (index) => {
         setFocusNavBar(index)
     }
-
     return (
         <div className={"flex overflow-hidden"}>
             <NavBar onClickNavBar={onClickNavBar} focusNavBar={focusNavBar}/>

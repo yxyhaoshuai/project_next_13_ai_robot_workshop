@@ -54,15 +54,46 @@ const RobotList: FC<ContainerProps | ParagraphProps> = ({routerIndex,children}) 
                         </div>
                         :
                         <div className={"w-full h-98 bg-text444 rounded-md overflow-hidden text-eee"}>
-                            <div className={"bg-no-repeat bg-cover bg-center bg-bottom h-48 overflow-hidden bg-[url('/background/img_1.png')]"}>
-
+                            <div className={"relative bg-no-repeat bg-cover bg-center bg-bottom h-48 overflow-hidden bg-[url('/background/img_1.png')]"}>
                             </div>
-                            <div className={"flex h-32 bg-text4 relative pl-52"}>
-                                <div className={"h-32 w-32 bg-amber-700 absolute -top-12 left-14"}></div>
-                                <div className={"h-8 w-24 mt-6 bg-bg2 ml-4"}></div>
-                                <div className={"h-8 w-24 mt-6 bg-bg2 ml-4"}></div>
-                                <div className={"h-8 w-24 mt-6 bg-bg2 ml-4"}></div>
-                                <div className={"h-8 w-24 mt-6 bg-bg2 ml-4"}></div>
+                            <div className={"flex h-32 bg-text444 relative pl-52"}>
+                                <div className={"h-32 w-32 rounded-md bg-amber-700 overflow-hidden absolute -top-12 left-14"}>
+                                    <img src="/develop-test-img/img_11.png" alt=""/>
+                                </div>
+                                <div className={"flex w-180 flex-wrap pt-4"}>
+                                    <div className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 ml-4 text-center leading-8"}>
+                                        聊天
+                                    </div>
+                                    <div className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
+                                        编辑
+                                    </div>
+                                    <div className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
+                                        发布
+                                    </div>
+                                    <div className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
+                                        分享
+                                    </div>
+                                </div>
+
+                                <div className={"absolute leading-6 w-60 text-center bottom-4 left-0 text-md overflow-hidden whitespace-nowrap overflow-ellipsis"}>
+                                    Fishing Game
+                                </div>
+                            </div>
+                            <div className={"ml-14"}>
+                                <Tag color="magenta">标签1</Tag>
+                                <Tag color="red">标签2</Tag>
+                                <Tag color="volcano">标签3</Tag>
+                                <Tag color="orange">标签4</Tag>
+                                <Tag color="gold">标签5</Tag>
+                                <Tag color="lime">标签6</Tag>
+                                <Tag color="green">标签7</Tag>
+                                <Tag color="cyan">标签8</Tag>
+                                <Tag color="blue">标签9</Tag>
+                                <Tag color="geekblue">标签10</Tag>
+                                <Tag color="purple">标签10</Tag>
+                            </div>
+                            <div className={"w-full px-8 py-8"}>
+                                聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍聊天机器人介绍
                             </div>
                         </div>
                 }

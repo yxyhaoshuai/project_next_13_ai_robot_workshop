@@ -11,11 +11,11 @@ const ChatRobotList: FC<ParagraphProps> = ({}) => {
     }
 
     //后端假数据,待删除
-    const robotArr = [{id: 1, name: "机器人1", intro: "您的机器人女友，可甜可咸。"}, {
-        id: 2,
+    const robotArr = [{id: 0, name: "机器人1", intro: "您的机器人女友，可甜可咸。"}, {
+        id: 1,
         name: "机器人1",
         intro: "您的机器人女友，可甜可咸。"
-    }, {id: 3, name: "机器人1", intro: "您的机器人女友，可甜可咸。"}];
+    }, {id: 2, name: "机器人1", intro: "您的机器人女友，可甜可咸。"}];
 
     const [focusRobotId, setFocusRobotId] = useState(0);
 
@@ -73,7 +73,6 @@ const ChatRobotList: FC<ParagraphProps> = ({}) => {
                         })
                     }
                 </div>
-
             </div>
         </>
 
