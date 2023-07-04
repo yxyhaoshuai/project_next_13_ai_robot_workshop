@@ -22,7 +22,7 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
     }
 
     //是否展开机器人详情
-    const [openAiDetail, setOpenAiDetail] = useState(true)
+    const [openAiDetail, setOpenAiDetail] = useState(false)
 
     //发送网络请求
     const sendMessage = () => {

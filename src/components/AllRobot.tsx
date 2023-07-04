@@ -9,9 +9,14 @@ const tagsData = ['中文', '日语', '英语'];
 
 interface ParagraphProps {
     setRouterIndex: (e) => void,
+    routerIndex:number
 }
 
-const AllRobot: FC<ParagraphProps> = ({setRouterIndex}) => {
+const AllRobot: FC<ParagraphProps> = ({setRouterIndex,routerIndex}) => {
+
+    //模拟已经登录
+    const [isLogin,setIsLogin] = useState(false);
+
     const onChange = (key: string | string[]) => {
         console.log(key);
     };
@@ -19,10 +24,11 @@ const AllRobot: FC<ParagraphProps> = ({setRouterIndex}) => {
         const nextSelectedTags = checked
             ? [...selectedTags, tag]
             : selectedTags.filter((t) => t !== tag);
-        console.log('You are interested in: ', nextSelectedTags);
+
         setSelectedTags(nextSelectedTags);
     };
     const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
+
     const items: CollapseProps['items'] = [
         {
             key: '1',
@@ -68,6 +74,7 @@ const AllRobot: FC<ParagraphProps> = ({setRouterIndex}) => {
                             onChange={(e) => {
                                 setRouterIndex(e)
                             }}
+                            value={routerIndex}
                             className={"bg-bg999"}
                             block={true}
                             options={[
@@ -95,6 +102,10 @@ const AllRobot: FC<ParagraphProps> = ({setRouterIndex}) => {
                             ]}
                         />
                     </Space>
+                    {/*###############登录了隐藏下面的div##############3#*/}
+                    {
+                        isLogin ? "" : <div className={"mt-8 bg-text4 text-eee text-xl h-16 rounded-full flex items-center justify-center hover:cursor-pointer"}>点击登录/注册</div>
+                    }
                 </div>
                 <div className={"w-10/12 rounded-md m-auto mt-4 text-xl pt-4 text-eee"}>AI条件筛选：</div>
                 <div className={"bg-eee w-10/12 m-auto rounded-md mt-3"}>
