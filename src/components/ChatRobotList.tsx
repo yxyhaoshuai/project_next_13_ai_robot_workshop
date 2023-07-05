@@ -3,21 +3,30 @@ import React, {FC, useState} from "react";
 interface ParagraphProps {
 }
 
+interface Robot {
+    id: number;
+    name: string;
+    intro: string;
+}
+
 const ChatRobotList: FC<ParagraphProps> = ({}) => {
     //搜索框获取焦点时发亮
-    const [isSearchFocus, setIsSearchFocus] = useState(false)
-    const searchOnFocus = () => {
-        setIsSearchFocus(isSearchFocus => !isSearchFocus)
-    }
+    const [isSearchFocus, setIsSearchFocus] = useState<boolean>(false)
 
-    //后端假数据,待删除
-    const robotArr = [{id: 0, name: "机器人1", intro: "您的机器人女友，可甜可咸。"}, {
-        id: 1,
-        name: "机器人1",
-        intro: "您的机器人女友，可甜可咸。"
-    }, {id: 2, name: "机器人1", intro: "您的机器人女友，可甜可咸。"}];
+    const searchOnFocus = (): void => {
+        setIsSearchFocus((isSearchFocus) => !isSearchFocus);
+    };
 
-    const [focusRobotId, setFocusRobotId] = useState(0);
+
+
+    const robotArr: Robot[] = [
+        { id: 0, name: "机器人1", intro: "您的机器人女友，可甜可咸。" },
+        { id: 1, name: "机器人1", intro: "您的机器人女友，可甜可咸。" },
+        { id: 2, name: "机器人1", intro: "您的机器人女友，可甜可咸。" },
+    ];
+
+
+    const [focusRobotId, setFocusRobotId] = useState<number>(0);
 
 
     return (

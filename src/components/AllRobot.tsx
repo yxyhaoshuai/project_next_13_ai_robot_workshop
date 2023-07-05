@@ -5,21 +5,22 @@ import {SearchOutlined} from "@ant-design/icons";
 
 const {CheckableTag} = Tag;
 
-const tagsData = ['中文', '日语', '英语'];
+const tagsData: string[] = ['中文', '日语', '英语'];
 
-interface ParagraphProps {
+interface AllRobotProps {
     setRouterIndex: (e) => void,
     routerIndex:number
 }
 
-const AllRobot: FC<ParagraphProps> = ({setRouterIndex,routerIndex}) => {
+const AllRobot: FC<AllRobotProps> = ({setRouterIndex,routerIndex}) => {
 
     //模拟已经登录
-    const [isLogin,setIsLogin] = useState(false);
+    const [isLogin,setIsLogin] = useState<boolean>(false);
 
     const onChange = (key: string | string[]) => {
         console.log(key);
     };
+
     const handleChange = (tag: string, checked: boolean) => {
         const nextSelectedTags = checked
             ? [...selectedTags, tag]
@@ -27,6 +28,7 @@ const AllRobot: FC<ParagraphProps> = ({setRouterIndex,routerIndex}) => {
 
         setSelectedTags(nextSelectedTags);
     };
+
     const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
 
     const items: CollapseProps['items'] = [

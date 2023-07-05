@@ -1,7 +1,9 @@
 import { FC } from "react";
 import {Progress} from "antd";
 
-interface PersonalDataProps {}
+interface PersonalDataProps {
+
+}
 
 const PersonalData : FC<PersonalDataProps> = ({}) => {
     return (

@@ -12,7 +12,7 @@ type ContainerProps = {
 const RobotList: FC<ContainerProps | ParagraphProps> = ({routerIndex,children}) => {
 
     //搜索框获取焦点时发亮
-    const [isSearchFocus, setIsSearchFocus] = useState(false)
+    const [isSearchFocus, setIsSearchFocus] = useState<boolean>(false)
     const searchOnFocus = () => {
         setIsSearchFocus(isSearchFocus => !isSearchFocus)
     }
@@ -99,10 +99,6 @@ const RobotList: FC<ContainerProps | ParagraphProps> = ({routerIndex,children}) 
                 }
             </div>
         </>
-
-
-
-
     )
 }
 

@@ -3,7 +3,7 @@ import {FC, useState} from "react";
 interface EditPanelProps {}
 
 const EditPanelProps : FC<EditPanelProps> = ({}) => {
-    const [editPanelIndex,setEditPanelIndex] = useState(0)
+    const [editPanelIndex,setEditPanelIndex] = useState<number>(0);
     return (
         <div className={"p-5"}>
             <div className={"bg-text444 h-screen rounded-md"}>

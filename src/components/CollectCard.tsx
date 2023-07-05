@@ -1,13 +1,13 @@
-import React, {FC, useState} from "react";
-import {Modal, Tag} from "antd";
+import React, {FC, useEffect, useState} from "react";
 
-interface RobotCardProps {
-}
+interface CollectProps {}
 
-const RobotCard: FC<RobotCardProps> = ({}) => {
-
+const Collect : FC<CollectProps> = ({}) => {
     const [open, setOpen] = useState<boolean>(false);
 
+    useEffect(()=>{
+        console.log("渲染")
+    },[])
 
     return (
         <>
@@ -44,8 +44,7 @@ const RobotCard: FC<RobotCardProps> = ({}) => {
                 </div>
             </div>
         </>
-
     )
 }
 
-export default RobotCard
+export default Collect

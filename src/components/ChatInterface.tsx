@@ -3,7 +3,10 @@ import {Tag} from "antd";
 
 
 interface ParagraphProps {
+
 }
+
+
 
 const ChatInterface: FC<ParagraphProps> = ({}) => {
 
@@ -22,26 +25,19 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
     }
 
     //是否展开机器人详情
-    const [openAiDetail, setOpenAiDetail] = useState(false)
+    const [openAiDetail, setOpenAiDetail] = useState<boolean>(false)
 
     //发送网络请求
-    const sendMessage = () => {
+    const sendMessage = (): void => {
         //清空输入框里的数据
-        setInputData("")
-        console.log("发送网络请求")
+        setInputData("");
+        console.log("发送网络请求");
         //在这里发送网络请求带上消息数据和用户id
+    };
 
-    }
-
-    const inputOnChange = (e) => {
-        setInputData(e.target.value)
-    }
-
-
-    //测试钩子
-    useEffect(() => {
-        console.log(messageItem)
-    }, [messageItem])
+    const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        setInputData(e.target.value);
+    };
 
 
     return (
