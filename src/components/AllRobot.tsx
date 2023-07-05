@@ -1,21 +1,19 @@
 import React, {FC, useState} from "react";
 import {Avatar, Button, Collapse, Segmented, Space, Tag} from "antd";
 import {SearchOutlined} from "@ant-design/icons";
-
-
 const {CheckableTag} = Tag;
-
 const tagsData: string[] = ['中文', '日语', '英语'];
+
+
 
 interface AllRobotProps {
     setRouterIndex: (e) => void,
-    routerIndex:number
+    routerIndex:number,
+    isLogin:boolean,
+    setExpandLogin:(status)=>void
 }
 
-const AllRobot: FC<AllRobotProps> = ({setRouterIndex,routerIndex}) => {
-
-    //模拟已经登录
-    const [isLogin,setIsLogin] = useState<boolean>(false);
+const AllRobot: FC<AllRobotProps> = ({setRouterIndex,routerIndex,isLogin,setExpandLogin}) => {
 
     const onChange = (key: string | string[]) => {
         console.log(key);
@@ -68,7 +66,6 @@ const AllRobot: FC<AllRobotProps> = ({setRouterIndex,routerIndex}) => {
             <>
                 <div className={"w-full h-16 bg-bg1 relative box-border"}>
                     <div className={"text-text2 absolute top-4 left-4 text-2xl"}>全部机器人</div>
-                    {/*<Segmented className={"mt-10"} block options={[123, 456, 'longtext-longtext-longtext-longtext']} />*/}
                 </div>
                 <div className={"w-10/12 m-auto"}>
                     <Space size="middle" direction="vertical" style={{display: 'flex'}}>
@@ -106,7 +103,7 @@ const AllRobot: FC<AllRobotProps> = ({setRouterIndex,routerIndex}) => {
                     </Space>
                     {/*###############登录了隐藏下面的div##############3#*/}
                     {
-                        isLogin ? "" : <div className={"mt-8 bg-text4 text-eee text-xl h-16 rounded-full flex items-center justify-center hover:cursor-pointer"}>点击登录/注册</div>
+                        isLogin ? "" : <div onClick={()=>setExpandLogin(true)} className={"mt-8 bg-text4 text-eee text-xl h-16 rounded-full flex items-center justify-center hover:cursor-pointer"}>点击登录/注册</div>
                     }
                 </div>
                 <div className={"w-10/12 rounded-md m-auto mt-4 text-xl pt-4 text-eee"}>AI条件筛选：</div>

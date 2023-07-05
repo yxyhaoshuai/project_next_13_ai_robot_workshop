@@ -38,7 +38,9 @@ module.exports = {
         '128': '32rem',
         '40px':'40px',
         '44':'11rem',
-        '32px':'32px'
+        '32px':'32px',
+        '112':'28rem',
+
       },
       height: {
         '97': '400px',
@@ -47,7 +49,9 @@ module.exports = {
         '21':'5.25rem',
         '2.5':'0.5rem',
         '32px':'32px',
-        '180':'45rem'
+        '180':'45rem',
+        '88':'22rem',
+        '10':'2.5rem'
       },
       colors: {
         navbar: 'rgb( 0, 0, 0)',

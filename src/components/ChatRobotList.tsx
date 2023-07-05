@@ -1,6 +1,8 @@
 import React, {FC, useState} from "react";
 
 interface ParagraphProps {
+    isLogin:boolean,
+    setExpandLogin:(status)=>void
 }
 
 interface Robot {
@@ -9,7 +11,7 @@ interface Robot {
     intro: string;
 }
 
-const ChatRobotList: FC<ParagraphProps> = ({}) => {
+const ChatRobotList: FC<ParagraphProps> = ({isLogin,setExpandLogin}) => {
     //搜索框获取焦点时发亮
     const [isSearchFocus, setIsSearchFocus] = useState<boolean>(false)
 
@@ -36,6 +38,7 @@ const ChatRobotList: FC<ParagraphProps> = ({}) => {
                     <div className={"text-text2 text-2xl"}>聊天</div>
                     {/*<Segmented className={"mt-10"} block options={[123, 456, 'longtext-longtext-longtext-longtext']} />*/}
                 </div>
+
                 <div
                     className={"w-full flex justify-center items-center drop-shadow-md hover:drop-shadow-[0_2px_6px_rgba(88,182,235,0.5)]"}>
                     <div
@@ -53,6 +56,9 @@ const ChatRobotList: FC<ParagraphProps> = ({}) => {
                         </div>
                     </div>
                 </div>
+                {
+                    isLogin ? "" :<div onClick={()=>{setExpandLogin(true)}} className={"mt-8 bg-text4 text-eee text-xl h-16 rounded-full flex items-center justify-center hover:cursor-pointer"}>点击登录/注册</div>
+                }
             </div>
             <div className={"m-auto bg-bg1 mt-5"}>
                 <div className={"ml-4 mr-4 flex items-center h-10 pl-3 rounded-tr-md rounded-tl-md bg-text444 mb-3"}>
