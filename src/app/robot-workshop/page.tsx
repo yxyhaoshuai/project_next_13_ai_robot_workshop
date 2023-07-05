@@ -8,6 +8,8 @@ import RobotList from "@/components/RobotList";
 import RobotCard from "@/components/RobotCard";
 import ChatRobotList from "@/components/ChatRobotList";
 import ChatInterface from "@/components/ChatInterface";
+import PersonalData from "@/components/PersonalData";
+import EditPanel from "@/components/EditPanel";
 
 
 export default function Page() {
@@ -26,7 +28,7 @@ export default function Page() {
                 <FirstLayout>
                     {focusNavBar === 0 && <AllRobot routerIndex={routerIndex} setRouterIndex={setRouterIndex}/>}
                     {focusNavBar === 1 && <ChatRobotList/>}
-                    {focusNavBar === 2 && <div className={"text-9xl"}>用户</div>}
+                    {focusNavBar === 2 && <PersonalData className={"text-9xl"}/>}
                     {focusNavBar === 3 && <div className={"text-9xl"}>收藏</div>}
                 </FirstLayout>
                 <SecondaryLayout>
@@ -45,7 +47,7 @@ export default function Page() {
                         <RobotCard/>
                     </RobotList>}
                     {focusNavBar === 1 && <ChatInterface/>}
-                    {focusNavBar === 2 && <div className={"text-9xl"}>用户</div>}
+                    {focusNavBar === 2 && <EditPanel className={"text-9xl"}/>}
                     {focusNavBar === 3 && <div className={"text-9xl"}>收藏</div>}
                 </SecondaryLayout>
             </div>
