@@ -13,6 +13,10 @@ module.exports = {
       'xl': '1200px',
     },
     extend: {
+      lineHeight: {
+        'extra-loose': '2.5',
+        '12': '3rem',
+      },
       spacing: {
         '7/8': '87.5%',
         '9/10': '90%',
@@ -69,10 +73,10 @@ module.exports = {
         bg999:'#999999',
         border1:'rgba(255,255,255,.5)',
         text3:'#a6a5a7',
-        text4:'#58b6eb'
+        text4:'#58b6eb',
+        codeinput:'rgba(245,244,246,1)'
 
       },
-
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

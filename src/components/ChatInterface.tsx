@@ -7,7 +7,6 @@ interface ParagraphProps {
 }
 
 
-
 const ChatInterface: FC<ParagraphProps> = ({}) => {
 
     //聊天区域内容
@@ -45,7 +44,6 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
             <div className={"rounded-md bg-text444 h-screen w-full flex flex-col"}>
                 {
                     openAiDetail ?
-
                         <div className={"w-full h-98 bg-text444 rounded-md overflow-hidden text-eee"}>
                             <div
                                 className={"relative bg-no-repeat bg-cover bg-center bg-bottom h-48 overflow-hidden bg-[url('/background/img_1.png')]"}>
@@ -57,25 +55,31 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
                                 </div>
                             </div>
                             <div className={"flex h-32 bg-text444 relative pl-52"}>
-                                <div className={"h-32 w-32 rounded-md bg-amber-700 overflow-hidden absolute -top-12 left-14"}>
+                                <div
+                                    className={"h-32 w-32 rounded-md bg-amber-700 overflow-hidden absolute -top-12 left-14"}>
                                     <img src="/develop-test-img/img.png" alt=""/>
                                 </div>
                                 <div className={"flex w-180 flex-wrap pt-4"}>
-                                    <div className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 ml-4 text-center leading-8"}>
+                                    <div
+                                        className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 ml-4 text-center leading-8"}>
                                         聊天
                                     </div>
-                                    <div className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
+                                    <div
+                                        className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
                                         编辑
                                     </div>
-                                    <div className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
+                                    <div
+                                        className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
                                         发布
                                     </div>
-                                    <div className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
+                                    <div
+                                        className={"hover:cursor-pointer h-8 w-20 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 bg-bg2 ml-4 text-center leading-8"}>
                                         分享
                                     </div>
                                 </div>
 
-                                <div className={"absolute leading-6 w-60 text-center bottom-4 left-0 text-md overflow-hidden whitespace-nowrap overflow-ellipsis"}>
+                                <div
+                                    className={"absolute leading-6 w-60 text-center bottom-4 left-0 text-md overflow-hidden whitespace-nowrap overflow-ellipsis"}>
                                     Fishing Game
                                 </div>
                             </div>
@@ -116,13 +120,11 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
                                 {
                                     messageItem.map((item, index) => {
                                         return item.isUser ?
-                                            <div className={"bg-text444 w-full pt-4 pb-4 flex justify-end pr-4"}>
-                                                <span
-                                                    className={"bg-text4 py-3 px-3 text-eee max-w-lg rounded-md"}>{item.data}</span>
+                                            <div key={index} className={"bg-text444 w-full pt-4 pb-4 flex justify-end pr-4"}>
+                                                <span className={"bg-text4 py-3 px-3 text-eee max-w-lg rounded-md"}>{item.data}</span>
                                                 <span className={"w-32px h-32px rounded-full ml-3 bg-text4"}>
-                                        <img className={"w-32px h-32px rounded-full w-8"} src="/user-head/img.png"
-                                             alt=""/>
-                                    </span>
+                                                    <img className={"w-32px h-32px rounded-full w-8"} src="/user-head/img.png" alt=""/>
+                                                </span>
                                             </div>
                                             :
                                             <div className={"bg-text444 w-full pt-4 pb-4 flex pl-4"}>

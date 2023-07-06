@@ -1,5 +1,5 @@
 "use client";
-import {useState} from "react";
+import {createContext, useState} from "react";
 import NavBar from "@/components/layout/NavBar";
 import FirstLayout from "@/components/layout/FirstLayout";
 import AllRobot from "@/components/AllRobot";
@@ -13,13 +13,16 @@ import EditPanel from "@/components/EditPanel";
 import Collect from "@/components/Collect";
 import CollectList from "@/components/CollectList";
 import CollectCard from "@/components/CollectCard";
-import LoginMask from "@/components/LoginMask";
+import LoginRegisterMask from "@/components/LoginRegisterMask";
+
+
 
 
 
 export default function Page() {
 
-    //是否展开登录面板
+
+    //是否展开登录&注册面板
     const [expandLogin,setExpandLogin] = useState<boolean>(false)
 
     //模拟已登录，后期使用setIsLogin修改登录状态
@@ -33,6 +36,8 @@ export default function Page() {
     const onClickNavBar = (index: number) => {
         setFocusNavBar(index);
     };
+
+
 
     return (
         <>
@@ -51,7 +56,7 @@ export default function Page() {
                     {focusNavBar === 3 && <CollectList><CollectCard/></CollectList>}
                 </SecondaryLayout>
                 {
-                    expandLogin && <LoginMask setExpandLogin={setExpandLogin}/>
+                    expandLogin && <LoginRegisterMask setExpandLogin={setExpandLogin} setExpandLogin={setExpandLogin}/>
                 }
             </div>
         </>
