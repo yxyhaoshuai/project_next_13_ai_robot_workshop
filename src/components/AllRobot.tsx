@@ -8,6 +8,7 @@ const tagsData: string[] = ['中文', '日语', '英语'];
 
 interface AllRobotProps {
     setRouterIndex: (e) => void,
+    setFocusNavBar: (e)=>void,
     routerIndex:number,
     isLogin:boolean,
     setExpandLogin:(status)=>void
@@ -81,10 +82,8 @@ const AllRobot: FC<AllRobotProps> = ({setRouterIndex,routerIndex,isLogin,setExpa
                                 {
                                     label: (
                                         <div style={{padding: 4}}>
-                                            <Avatar src={"/iconfont/allCategories.svg"} className={"bg-white"}>
-
-                                            </Avatar>
-                                            <div>所有AI</div>
+                                            <Avatar src={"/iconfont/allCategories.png"} shape="square"/>
+                                            <div>AI聊天</div>
                                         </div>
                                     ),
                                     value: 0,
@@ -92,8 +91,8 @@ const AllRobot: FC<AllRobotProps> = ({setRouterIndex,routerIndex,isLogin,setExpa
                                 {
                                     label: (
                                         <div style={{padding: 4}}>
-                                            <Avatar src={"/iconfont/my.svg"}/>
-                                            <div>我的AI</div>
+                                            <Avatar shape="square" src={"/iconfont/Image.png"}/>
+                                            <div>AI生图</div>
                                         </div>
                                     ),
                                     value: 1,

@@ -1,5 +1,5 @@
 "use client";
-import {useState} from "react";
+import React, {useState} from "react";
 import NavBar from "@/components/layout/NavBar";
 import FirstLayout from "@/components/layout/FirstLayout";
 import AllRobot from "@/components/AllRobot";
@@ -14,6 +14,7 @@ import Collect from "@/components/Collect";
 import CollectList from "@/components/CollectList";
 import CollectCard from "@/components/CollectCard";
 import LoginRegisterMask from "@/components/LoginRegisterMask";
+import AiGeneratedGraph from "@/components/AiGeneratedGraph";
 
 
 
@@ -47,7 +48,7 @@ export default function Page() {
             <div className={"flex overflow-hidden"}>
                 <NavBar onClickNavBar={onClickNavBar} focusNavBar={focusNavBar}/>
                 <FirstLayout>
-                    {focusNavBar === 0 && <AllRobot setExpandLogin={setExpandLogin} isLogin={isLogin} routerIndex={routerIndex} setRouterIndex={setRouterIndex}/>}
+                    {focusNavBar === 0 && <AllRobot  setFocusNavBar={setFocusNavBar} setExpandLogin={setExpandLogin} isLogin={isLogin} routerIndex={routerIndex} setRouterIndex={setRouterIndex}/>}
                     {focusNavBar === 1 && <ChatRobotList setExpandLogin={setExpandLogin} isLogin={isLogin}/>}
                     {focusNavBar === 2 && <PersonalData className={"text-9xl"}/>}
                     {focusNavBar === 3 && <Collect/>}

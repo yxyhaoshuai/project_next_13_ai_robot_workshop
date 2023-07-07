@@ -103,27 +103,34 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
                         </div>
                         :
                         <>
-                            <div onClick={() => {
-                                setOpenAiDetail(!openAiDetail)
-                            }}
-                                 className={"text-center h-24 flex justify-center items-center border-b border-b-bg999 w-full"}>
-                                <a href="#">
-                                    <img className={"w-16 rounded-full"} src="/develop-test-img/img.png" alt=""/>
-                                </a>
-                                <a className={"block flex items-center"} href="#">
-                                    <span className={"ml-3 text-text4 text-xl"}>Fishing Game</span>
-                                    <img className={"w-5 h-5"} src={"/iconfont/right-arrow.svg"}/>
-                                </a>
+                            <div
+                                className={"text-center h-24 flex justify-center items-center border-b border-b-bg999 w-full"}>
+
+                                    <img onClick={() => {
+                                        setOpenAiDetail(!openAiDetail)
+                                    }} className={"w-16 rounded-full hover:cursor-pointer"} src="/develop-test-img/img.png" alt=""/>
+
+
+                                    <span onClick={() => {
+                                        setOpenAiDetail(!openAiDetail)
+                                    }} className={"ml-3 text-text4 text-xl hover:cursor-pointer"}>Fishing Game</span>
+                                    <img onClick={() => {
+                                        setOpenAiDetail(!openAiDetail)
+                                    }} className={"w-5 h-5 hover:cursor-pointer"} src={"/iconfont/right-arrow.svg"}/>
+
                             </div>
                             <div className={"bg-text444 w-full h-5/6 pl-5 pr-5 overflow-y-auto"}>
                                 {/*在下面添加内容*/}
                                 {
                                     messageItem.map((item, index) => {
                                         return item.isUser ?
-                                            <div key={index} className={"bg-text444 w-full pt-4 pb-4 flex justify-end pr-4"}>
-                                                <span className={"bg-text4 py-3 px-3 text-eee max-w-lg rounded-md"}>{item.data}</span>
+                                            <div key={index}
+                                                 className={"bg-text444 w-full pt-4 pb-4 flex justify-end pr-4"}>
+                                                <span
+                                                    className={"bg-text4 py-3 px-3 text-eee max-w-lg rounded-md"}>{item.data}</span>
                                                 <span className={"w-32px h-32px rounded-full ml-3 bg-text4"}>
-                                                    <img className={"w-32px h-32px rounded-full w-8"} src="/user-head/img.png" alt=""/>
+                                                    <img className={"w-32px h-32px rounded-full w-8"}
+                                                         src="/user-head/img.png" alt=""/>
                                                 </span>
                                             </div>
                                             :
