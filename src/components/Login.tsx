@@ -2,8 +2,7 @@ import React, { FC } from "react";
 
 
 interface LoginProps {
-    setExpandLogin:(state) => void,
-    setShowRegisterPanel(status): (state)=>void
+    setExpandLogin:(state) => void
 
 }
 

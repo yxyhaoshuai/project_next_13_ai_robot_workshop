@@ -1,5 +1,5 @@
 "use client";
-import {createContext, useState} from "react";
+import {useState} from "react";
 import NavBar from "@/components/layout/NavBar";
 import FirstLayout from "@/components/layout/FirstLayout";
 import AllRobot from "@/components/AllRobot";
@@ -39,6 +39,9 @@ export default function Page() {
 
 
 
+
+
+
     return (
         <>
             <div className={"flex overflow-hidden"}>
@@ -56,7 +59,7 @@ export default function Page() {
                     {focusNavBar === 3 && <CollectList><CollectCard/></CollectList>}
                 </SecondaryLayout>
                 {
-                    expandLogin && <LoginRegisterMask setExpandLogin={setExpandLogin} setExpandLogin={setExpandLogin}/>
+                    expandLogin && <LoginRegisterMask setExpandLogin={setExpandLogin}/>
                 }
             </div>
         </>
