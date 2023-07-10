@@ -6,28 +6,28 @@ interface AiGeneratedGraphProps {
 const AiGeneratedGraph: FC<AiGeneratedGraphProps> = ({}) => {
 
     const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setInputData(e.target.value);
+        setInputGraphData(e.target.value);
     };
 
     //发送网络请求
     const sendMessage = (): void => {
         //清空输入框里的数据
-        setInputData("");
+        setInputGraphData("");
         console.log("发送网络请求");
         //在这里发送网络请求带上消息数据和用户id
     };
 
     //聊天区域内容
-    const [messageItem, setMessageItem] = useState([]);
+    const [graphMessageItem, setGraphMessageItem] = useState([]);
 
     //输入框当前文字
-    const [inputData, setInputData] = useState("");
+    const [inputGraphData, setInputGraphData] = useState("");
 
     //点击发送按钮
     const onClickSend = () => {
-        if (inputData.length === 0) return
+        if (inputGraphData.length === 0) return
         //此时加上用户消息条目
-        setMessageItem([...messageItem, {isUser: true, data: inputData}])
+        setGraphMessageItem([...graphMessageItem, {isUser: true, data: inputGraphData}])
         sendMessage()
     }
     return (
@@ -46,7 +46,7 @@ const AiGeneratedGraph: FC<AiGeneratedGraphProps> = ({}) => {
                 <div className={"bg-text444 w-full h-5/6 pl-5 pr-5 overflow-y-auto"}>
                     {/*在下面添加内容*/}
                     {
-                        messageItem.map((item, index) => {
+                        graphMessageItem.map((item, index) => {
                             return item.isUser ?
                                 <div key={index}
                                      className={"bg-text444 w-full pt-4 pb-4 flex justify-end pr-4"}>
@@ -76,7 +76,7 @@ const AiGeneratedGraph: FC<AiGeneratedGraphProps> = ({}) => {
                             if (e.keyCode === 13) {
                                 onClickSend()
                             }
-                        }} value={inputData} onChange={inputOnChange}
+                        }} value={inputGraphData} onChange={inputOnChange}
                                className={"w-full h-12 bg-bgeee focus:outline-none pl-8"} type="text"
                                name="input-name" placeholder="描述你想要的图！"/>
                         <div onClick={onClickSend}

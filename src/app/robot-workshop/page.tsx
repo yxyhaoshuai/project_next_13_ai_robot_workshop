@@ -1,5 +1,5 @@
 "use client";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import NavBar from "@/components/layout/NavBar";
 import FirstLayout from "@/components/layout/FirstLayout";
 import AllRobot from "@/components/AllRobot";
@@ -15,6 +15,7 @@ import CollectList from "@/components/CollectList";
 import CollectCard from "@/components/CollectCard";
 import LoginRegisterMask from "@/components/LoginRegisterMask";
 import AiGeneratedGraph from "@/components/AiGeneratedGraph";
+import {headers} from "@/api/Headers/Headers";
 
 
 
@@ -40,7 +41,9 @@ export default function Page() {
 
 
 
-
+useEffect(()=>{
+    console.log(headers({eta:1}))
+},[])
 
 
     return (
