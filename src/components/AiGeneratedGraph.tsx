@@ -48,20 +48,16 @@ const AiGeneratedGraph: FC<AiGeneratedGraphProps> = ({}) => {
                     {
                         graphMessageItem.map((item, index) => {
                             return item.isUser ?
-                                <div key={index}
-                                     className={"bg-text444 w-full pt-4 pb-4 flex justify-end pr-4"}>
-                                                <span
-                                                    className={"bg-text4 py-3 px-3 text-eee max-w-lg rounded-md"}>{item.data}</span>
+                                <div key={index} className={"bg-text444 w-full pt-4 pb-4 flex justify-end pr-4"}>
+                                    <span className={"bg-text4 py-3 px-3 text-eee max-w-lg rounded-md"}>{item.data}</span>
                                     <span className={"w-32px h-32px rounded-full ml-3 bg-text4"}>
-                                                    <img className={"w-32px h-32px rounded-full w-8"}
-                                                         src="/user-head/img.png" alt=""/>
-                                                </span>
+                                        <img className={"w-32px h-32px rounded-full w-8"} src="/user-head/img.png" alt=""/>
+                                    </span>
                                 </div>
                                 :
                                 <div className={"bg-text444 w-full pt-4 pb-4 flex pl-4"}>
                                     <span className={"w-32px h-32px rounded-full bg-text4 mr-3"}>
-                                        <img className={"w-32px h-32px rounded-full w-8"}
-                                             src="/develop-test-img/img.png" alt=""/>
+                                        <img className={"w-32px h-32px rounded-full w-8"} src="/develop-test-img/img.png" alt=""/>
                                     </span>
                                     <span
                                         className={"bg-text4 py-3 px-3 text-eee max-w-lg rounded-md"}>{item.data}</span>

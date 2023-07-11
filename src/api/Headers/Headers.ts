@@ -1,4 +1,4 @@
-let Txt2imgArgs = {
+let Txt2imgArgs:Record<string, unknown>  = {
     enable_hr: false,
     denoising_strength: 0.0,
     firstphase_width: 0,
@@ -44,10 +44,10 @@ let Txt2imgArgs = {
     alwayson_scripts: {},
     options: {},
 }
-let Img2imgArgs = {method:"get",content:"这里是内容"}
+let Img2imgArgs:Record<string, unknown> = {method:"get",content:"这里是内容"}
 
 
-export let headers = (data:object={})=>{
 
-    return {...Txt2imgArgs,...data}
-}
+export const headers = (data: Record<string, unknown> = {}) => {
+    return { ...Txt2imgArgs, ...data };
+};

@@ -8,20 +8,38 @@ interface ParagraphProps {
 
 
 const ChatInterface: FC<ParagraphProps> = ({}) => {
+    //重构、配置的输入框参数
+    const inputParameter = [
+        {id: 1, parameter: '/abcde'},
+        {id: 2, parameter: '/defabc'},
+        {id: 3, parameter: '/efg'},
+        {id: 4, parameter: '/haws'},
+        {id: 5, parameter: '/efafg'},
+        {id: 6, parameter: '/sfasf'},
+        {id: 7, parameter: '/hggggaws'},
+        {id: 8, parameter: '/efaqafg'},
+    ];
+
+    //当前匹配到的参数
+    const [currentInputBoxParameter, setCurrentInputBoxParameter] = useState([])
 
     //聊天区域内容
     const [messageItem, setMessageItem] = useState([]);
 
     //输入框当前文字
-    const [inputData, setInputData] = useState("");
+    const [inputData, setInputData] = useState<string>("");
+
+    //是否隐藏tip提示
+    const [isHideTip, setIsHideTip] = useState<boolean>(true);
 
     //点击发送按钮
-    const onClickSend = () => {
-        if (inputData.length === 0) return
+    const onClickSend = (): void => {
+        if (inputData.length === 0) return;
         //此时加上用户消息条目
-        setMessageItem([...messageItem, {isUser: true, data: inputData}])
-        sendMessage()
-    }
+        setMessageItem([...messageItem, {isUser: true, data: inputData}]);
+        sendMessage();
+    };
+
 
     //是否展开机器人详情
     const [openAiDetail, setOpenAiDetail] = useState<boolean>(false)
@@ -36,7 +54,24 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
 
     const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setInputData(e.target.value);
+        const regex = new RegExp(`.*${e.target.value}.*`, 'i');
+        const matchedParameters = inputParameter.filter((item) => regex.test(item.parameter));
+        setCurrentInputBoxParameter(matchedParameters)
+
     };
+
+    //控制是否展开输入框的参数列表
+    useEffect(() => {
+        currentInputBoxParameter.length > 0 ? setIsHideTip(false) : setIsHideTip(true)
+        inputData.length < 1 && setIsHideTip(true)
+    }, [currentInputBoxParameter])
+
+
+    const onClickParameterItems = (text) => {
+        setInputData(text + "：")
+        setIsHideTip(true)
+        //在这里写聚焦到输入框
+    }
 
 
     return (
@@ -106,17 +141,18 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
                             <div
                                 className={"text-center h-24 flex justify-center items-center border-b border-b-bg999 w-full"}>
 
-                                    <img onClick={() => {
-                                        setOpenAiDetail(!openAiDetail)
-                                    }} className={"w-16 rounded-full hover:cursor-pointer"} src="/develop-test-img/img.png" alt=""/>
+                                <img onClick={() => {
+                                    setOpenAiDetail(!openAiDetail)
+                                }} className={"w-16 rounded-full hover:cursor-pointer"} src="/develop-test-img/img.png"
+                                     alt=""/>
 
 
-                                    <span onClick={() => {
-                                        setOpenAiDetail(!openAiDetail)
-                                    }} className={"ml-3 text-text4 text-xl hover:cursor-pointer"}>Fishing Game</span>
-                                    <img onClick={() => {
-                                        setOpenAiDetail(!openAiDetail)
-                                    }} className={"w-5 h-5 hover:cursor-pointer"} src={"/iconfont/right-arrow.svg"}/>
+                                <span onClick={() => {
+                                    setOpenAiDetail(!openAiDetail)
+                                }} className={"ml-3 text-text4 text-xl hover:cursor-pointer"}>Fishing Game</span>
+                                <img onClick={() => {
+                                    setOpenAiDetail(!openAiDetail)
+                                }} className={"w-5 h-5 hover:cursor-pointer"} src={"/iconfont/right-arrow.svg"}/>
 
                             </div>
                             <div className={"bg-text444 w-full h-5/6 pl-5 pr-5 overflow-y-auto"}>
@@ -145,7 +181,7 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
                                     })
                                 }
                             </div>
-                            <div className={"h-21 bg-text444 w-full flex justify-center items-center relative"}>
+                            <div className={"h-21 bg-text444 w-full flex justify-center items-center relative z-40"}>
                                 <div
                                     className={"w-9/12 bg-bg999 m-auto absolute bottom-6 flex rounded-2xl overflow-hidden"}>
                                     <input onKeyDown={(e) => {
@@ -160,6 +196,31 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
                                         发送
                                     </div>
                                 </div>
+                                {/*隐藏下面的组件*/}
+                                {
+                                    isHideTip ? "" : <div
+                                        className={"absolute -top-60 w-10/12 h-60 bg-bg1 rounded-md z-40 pt-8 pb-2 pl-4 pr-4"}>
+                                        <img className={"w-6 h-6 absolute top-0 left-3"} src="/iconfont/hint.png"
+                                             alt=""/>
+                                        <div className={"bg-bg1 w-full h-full w-full overflow-y-auto"}>
+                                            <div>
+                                                {
+                                                    currentInputBoxParameter.map((item, index) => {
+                                                        return <div onClick={() => {
+                                                            onClickParameterItems(item.parameter)
+                                                        }} key={index}
+                                                                    className={"h-9 bg-bg1 hover:cursor-pointer hover:bg-bg5 text-bg999 flex items-center relative px-2"}>
+                                                            <span>{item.parameter}</span>
+                                                            <span
+                                                                className={"absolute right-2 text-xs text-zinc-500"}>机器人参数</span>
+                                                        </div>
+                                                    })
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
                             </div>
                         </>
 

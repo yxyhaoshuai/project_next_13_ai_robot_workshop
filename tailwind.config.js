@@ -55,7 +55,7 @@ module.exports = {
         '32px':'32px',
         '180':'45rem',
         '88':'22rem',
-        '10':'2.5rem'
+        '10':'2.5rem',
       },
       colors: {
         navbar: 'rgb( 0, 0, 0)',
@@ -74,7 +74,8 @@ module.exports = {
         border1:'rgba(255,255,255,.5)',
         text3:'#a6a5a7',
         text4:'#58b6eb',
-        codeinput:'rgba(245,244,246,1)'
+        codeinput:'rgba(245,244,246,1)',
+        bg5:'rgba(40,40,40,1)'
 
       },
       backgroundImage: {

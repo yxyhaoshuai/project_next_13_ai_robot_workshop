@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import NavBar from "@/components/layout/NavBar";
 import FirstLayout from "@/components/layout/FirstLayout";
 import AllRobot from "@/components/AllRobot";
@@ -14,8 +14,8 @@ import Collect from "@/components/Collect";
 import CollectList from "@/components/CollectList";
 import CollectCard from "@/components/CollectCard";
 import LoginRegisterMask from "@/components/LoginRegisterMask";
-import AiGeneratedGraph from "@/components/AiGeneratedGraph";
-import {headers} from "@/api/Headers/Headers";
+
+
 
 
 
@@ -41,11 +41,6 @@ export default function Page() {
 
 
 
-useEffect(()=>{
-    console.log(headers({eta:1}))
-},[])
-
-
     return (
         <>
             <div className={"flex overflow-hidden"}>
@@ -60,7 +55,14 @@ useEffect(()=>{
                     {focusNavBar === 0 && <RobotList routerIndex={routerIndex}><RobotCard/><RobotCard/></RobotList>}
                     {focusNavBar === 1 && <ChatInterface/>}
                     {focusNavBar === 2 && <EditPanel className={"text-9xl"}/>}
-                    {focusNavBar === 3 && <CollectList><CollectCard/></CollectList>}
+                    {focusNavBar === 3 && <CollectList>
+                        <CollectCard/>
+                        <CollectCard/>
+                        <CollectCard/>
+                        <CollectCard/>
+                        <CollectCard/>
+                        <CollectCard/>
+                    </CollectList>}
                 </SecondaryLayout>
                 {
                     expandLogin && <LoginRegisterMask setExpandLogin={setExpandLogin}/>
