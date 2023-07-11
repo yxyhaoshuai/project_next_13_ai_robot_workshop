@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from "react";
+import React, {FC, useEffect, useRef, useState} from "react";
 import {Tag} from "antd";
 
 
@@ -20,7 +20,18 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
         {id: 8, parameter: '/efaqafg'},
     ];
 
-    //当前匹配到的参数
+
+
+    const inputRef = useRef(null);
+
+    //当前选中的参数id，等待用户点击发送按钮后发送这个参数#########把这里以及相关的逻辑清空
+    const [selectedParameter, setSelectedParameter] = useState(-1);
+
+    useEffect(()=>{
+        console.log(selectedParameter)
+    },[selectedParameter])
+
+    //当前匹配到的参数列表
     const [currentInputBoxParameter, setCurrentInputBoxParameter] = useState([])
 
     //聊天区域内容
@@ -48,10 +59,14 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
     const sendMessage = (): void => {
         //清空输入框里的数据
         setInputData("");
+
+        //把参数重置为初始值-1
+        setSelectedParameter(-1)
         console.log("发送网络请求");
         //在这里发送网络请求带上消息数据和用户id
     };
 
+    //输入框发生改变
     const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setInputData(e.target.value);
         const regex = new RegExp(`.*${e.target.value}.*`, 'i');
@@ -67,10 +82,13 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
     }, [currentInputBoxParameter])
 
 
-    const onClickParameterItems = (text) => {
+    const onClickParameterItems = (text,id) => {
         setInputData(text + "：")
         setIsHideTip(true)
+        setSelectedParameter(id)
         //在这里写聚焦到输入框
+        inputRef.current.focus();
+
     }
 
 
@@ -184,7 +202,7 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
                             <div className={"h-21 bg-text444 w-full flex justify-center items-center relative z-40"}>
                                 <div
                                     className={"w-9/12 bg-bg999 m-auto absolute bottom-6 flex rounded-2xl overflow-hidden"}>
-                                    <input onKeyDown={(e) => {
+                                    <input ref={inputRef} onKeyDown={(e) => {
                                         if (e.keyCode === 13) {
                                             onClickSend()
                                         }
@@ -207,7 +225,7 @@ const ChatInterface: FC<ParagraphProps> = ({}) => {
                                                 {
                                                     currentInputBoxParameter.map((item, index) => {
                                                         return <div onClick={() => {
-                                                            onClickParameterItems(item.parameter)
+                                                            onClickParameterItems(item.parameter,item.id)
                                                         }} key={index}
                                                                     className={"h-9 bg-bg1 hover:cursor-pointer hover:bg-bg5 text-bg999 flex items-center relative px-2"}>
                                                             <span>{item.parameter}</span>
