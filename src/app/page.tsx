@@ -1,6 +1,6 @@
 "use client";
-import {FC, useEffect} from "react";
-import {register} from "@/api/test";
+import {FC, useEffect, useState} from "react";
+import {getImg, register} from "@/api/test";
 
 
 
@@ -8,18 +8,51 @@ import {register} from "@/api/test";
 interface ParagraphProps {}
 
 const Paragraph : FC<ParagraphProps> = ({}) => {
-    // useEffect(()=>{
-    //     register("Best quality, masterpiece, ultra high res, (photorealistic:1.4), raw photo, 1girl, off shoulder").then((result)=>{
-    //         console.log(result)
-    //     })
-    // },[])
+
+    const [loading,setLoading] = useState(false)
+
+    const [imageData,setImageData] = useState('')
+
+    const [getImgInterval,setGetImgInterval] = useState(true)
+    const [id,setId] = useState("")
+    //
+    useEffect(()=>{
+        register("dog").then((result)=>{
+            setId(result.request_id)
+            setLoading(true)
+        })
+    },[])
+
+    useEffect(() => {
+        if (loading){
+            setTimeout(() => {
+                setGetImgInterval(!getImgInterval)
+            }, 1000)
+        }
+        getImg(id).then((result)=>{
+            //停止加载
+            if (result.status === "done"){
+                setLoading(false)
+            }
+
+            console.log(result)
+
+            if (result.result?.images !== undefined && result.result.images !== null) {
+                setImageData(...result.result.images);
+            } else if (result.result?.current_image !== undefined && result.result.current_image !== null) {
+                setImageData(result.result.current_image);
+            }
+        })
+    }, [loading,getImgInterval])
+
+
+
     return (
         <div className={"text-9xl"}>
-            这里是首页
+            <img src={`data:image/png;base64,${imageData}`}/>
         </div>
 
     )
 }
 
 export default Paragraph
-

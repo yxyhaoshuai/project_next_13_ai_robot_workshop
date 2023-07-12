@@ -2,4 +2,6 @@ import ajax from "../tools/ajax";
 
 
 
-export const register = (prompt): Promise<any> => ajax("/sdapi/v1/txt2img", {prompt}, "post");
+export const register = (prompt): Promise<any> => ajax("/txt2img", {prompt}, "post");
+
+export const getImg = (request_id)=>ajax("/progress/"+request_id)
