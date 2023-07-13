@@ -48,7 +48,7 @@ const RobotList: FC<ContainerProps | ParagraphProps> = ({routerIndex, children})
                                 <Tag color="magenta">英文</Tag>
                                 <Tag color="magenta">日文</Tag>
                             </div>
-                            <div className={"h-98 overflow-y-auto scroll-red"}>
+                            <div className={"h-screen overflow-y-auto scroll-red"}>
                                 <div className="grid grid-cols-3 md:grid-cols-4 sm:grid-cols-5 gap-5 pl-5 pr-5 pb-5">
                                     {
                                         children

@@ -1,6 +1,7 @@
 "use client";
 import {FC, useEffect, useState} from "react";
-import {getImg, register} from "@/api/test";
+import {getImg, register, register2} from "@/api/test";
+import {headers} from "@/api/Headers/Headers";
 
 
 
@@ -17,6 +18,13 @@ const Paragraph : FC<ParagraphProps> = ({}) => {
     const [id,setId] = useState("")
     //
     useEffect(()=>{
+
+        //使用headers时
+        // register2(headers({prompt:"dog"})).then((result)=>{
+        //     setId(result.request_id)
+        //     setLoading(true)
+        // })
+
         register("dog").then((result)=>{
             setId(result.request_id)
             setLoading(true)

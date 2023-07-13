@@ -52,10 +52,15 @@ export default function Page() {
                     {focusNavBar === 3 && <Collect/>}
                 </FirstLayout>
                 <SecondaryLayout>
-                    {focusNavBar === 0 && <RobotList routerIndex={routerIndex}><RobotCard/><RobotCard/></RobotList>}
+                    {focusNavBar === 0 && <RobotList routerIndex={routerIndex}><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/><RobotCard/></RobotList>}
                     {focusNavBar === 1 && <ChatInterface/>}
                     {focusNavBar === 2 && <EditPanel className={"text-9xl"}/>}
                     {focusNavBar === 3 && <CollectList>
+                        <CollectCard/>
+                        <CollectCard/>
+                        <CollectCard/>
+                        <CollectCard/>
+                        <CollectCard/>
                         <CollectCard/>
                         <CollectCard/>
                         <CollectCard/>

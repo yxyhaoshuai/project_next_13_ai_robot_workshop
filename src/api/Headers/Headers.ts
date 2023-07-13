@@ -44,6 +44,7 @@ let Txt2imgArgs:Record<string, unknown>  = {
     alwayson_scripts: {},
     options: {},
 }
+
 let Img2imgArgs:Record<string, unknown> = {method:"get",content:"这里是内容"}
 
 

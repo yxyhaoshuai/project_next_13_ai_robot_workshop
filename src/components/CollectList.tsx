@@ -17,7 +17,7 @@ const CollectList : FC<CollectRobotCardProps | ContainerProps> = ({children}) =>
 
     return (
         <>
-            <div className={"collect rounded-md overflow-hidden mt-4"}>
+            <div className={"collect rounded-md overflow-hidden h-screen mt-4"}>
                 <div className={"w-full h-24 flex justify-center items-center drop-shadow-md hover:drop-shadow-[0_2px_6px_rgba(88,182,235,0.5)]"}>
                     <div className={`border ${isSearchFocus ? "border-searchborder drop-shadow-[0_2px_6px_rgba(88,182,235,0.5)]" : "border-text444"} drop-shadow-3xl h-14 w-10/12 bg-text444 rounded-full overflow-hidden flex`}>
                         <div className={"flex-1 bg-text444 h-full flex justify-center items-center"}>
@@ -33,7 +33,7 @@ const CollectList : FC<CollectRobotCardProps | ContainerProps> = ({children}) =>
                         </div>
                     </div>
                 </div>
-                <div className={"w-full bg-text444 rounded-md overflow-hidden"}>
+                <div className={"w-full bg-text444 rounded-md overflow-hidden h-screen"}>
 
                     <div className={"h-14 text-eee text-xl flex ml-4 items-center"}>
                         筛选条件：
@@ -41,7 +41,7 @@ const CollectList : FC<CollectRobotCardProps | ContainerProps> = ({children}) =>
                         <Tag color="magenta">英文</Tag>
                         <Tag color="magenta">日文</Tag>
                     </div>
-                    <div className={"h-98 overflow-y-auto scroll-red"}>
+                    <div className={"h-screen overflow-y-auto scroll-red"}>
                         <div className="grid grid-cols-3 md:grid-cols-4 sm:grid-cols-5 gap-5 pl-5 pr-5 pb-5">
                             {
                                 children
@@ -49,8 +49,6 @@ const CollectList : FC<CollectRobotCardProps | ContainerProps> = ({children}) =>
                         </div>
                     </div>
                 </div>
-
-                }
             </div>
         </>
     )
